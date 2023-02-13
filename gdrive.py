@@ -23,17 +23,27 @@ no = []
 nama = []
 sekolah = []
 links = []
+jenjang = []
 i = 1
 for file1 in file_list:
     print("title: %s, id: %s" % (file1["title"], file1["id"]))
     file_ = file1["title"].split("__")
     no.append(file_[0])
     nama.append(file_[1])
-    sekolah.append(file_[2].replace(".pdf", ""))
+    sekolah.append(file_[2])
     links.append(
         f"https://drive.google.com/uc?export=download&id={file1['id']}"
     )
+    jenjang.append(file_[3].replace(".pdf", ""))
     i += 1
 
-df = pd.DataFrame({"No": no, "Nama": nama, "Sekolah": sekolah, "Links": links})
+df = pd.DataFrame(
+    {
+        "No": no,
+        "Nama": nama,
+        "Sekolah": sekolah,
+        "Links": links,
+        "jenjang": jenjang,
+    }
+)
 df.to_excel("list_files.xlsx", index=False)
