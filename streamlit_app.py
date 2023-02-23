@@ -8,7 +8,15 @@ maindftk = df[df["jenjang"].str.upper() == "TK"]
 
 data = {"sd": maindfsd, "tk": maindftk}
 
-st.set_page_config(layout="wide", page_title="Sertifikat Lomba Tahfidz")
+st.set_page_config(
+    layout="wide",
+    page_title="Sertifikat Lomba Tahfidz",
+    menu_items={
+        "About": "https://github.com/zamzami16",
+        "Report a bug": "https://api.whatsapp.com/send/?phone=6285161400863&text=Hi,"
+        + " Your Bagi sertifikat Tahfidz app have a bug. Please help me.&type=phone_number&app_absent=0",
+    },
+)
 
 btnCari = False
 cari = ""
